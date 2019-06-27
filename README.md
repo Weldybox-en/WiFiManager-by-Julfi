@@ -1,9 +1,7 @@
-## Current development going on here :arrow_right: [Development Branch](https://github.com/tzapu/WiFiManager/tree/development)
+Please notice that the documentation bellow is an adaptation of the one created by [tapzu](https://github.com/tzapu/WiFiManager) (owner of Wifimanager).
 
 # WiFiManager
 ESP8266 WiFi Connection manager with fallback web configuration portal
-
-[![Build Status](https://travis-ci.org/tzapu/WiFiManager.svg?branch=master)](https://travis-ci.org/tzapu/WiFiManager)
 
 The configuration portal is of the captive variety, so on various devices it will present the configuration dialogue as soon as you connect to the created access point.
 
@@ -15,9 +13,7 @@ First attempt at a library. Lots more changes and fixes to do. Contributions are
  - [How it works](#how-it-works)
  - [Wishlist](#wishlist)
  - [Quick start](#quick-start)
-   - Installing
-     - [Through Library Manager](#install-through-library-manager)
-     - [From Github](#checkout-from-github)
+   - [Installing](#installing)
    - [Using](#using)
  - [Documentation](#documentation)
    - [Access Point Password](#password-protect-the-configuration-access-point)
@@ -29,8 +25,6 @@ First attempt at a library. Lots more changes and fixes to do. Contributions are
    - [Filter Low Quality Networks](#filter-networks)
    - [Debug Output](#debug)
  - [Troubleshooting](#troubleshooting)
- - [Releases](#releases)
- - [Contributors](#contributions-and-thanks)
 
 
 ## How It Works
@@ -42,7 +36,11 @@ First attempt at a library. Lots more changes and fixes to do. Contributions are
 - ESP will try to connect. If successful, it relinquishes control back to your app. If not, reconnect to AP and reconfigure.
 
 ## How It Looks
-![ESP8266 WiFi Captive Portal Homepage](http://i.imgur.com/YPvW9eql.png) ![ESP8266 WiFi Captive Portal Configuration](http://i.imgur.com/oicWJ4gl.png)
+
+<p>
+  <img src="https://imgur.com/rtKI3Iw.png" width="379">
+  <img src="https://imgur.com/GuqN9VI.png" width="350">
+</p>
 
 ## Wishlist
 - [x] remove dependency on EEPROM library
@@ -62,21 +60,12 @@ First attempt at a library. Lots more changes and fixes to do. Contributions are
 ## Quick Start
 
 ### Installing
-You can either install through the Arduino Library Manager or checkout the latest changes or a release from github
 
-#### Install through Library Manager
-__Currently version 0.8+ works with release 2.0.0 or newer of the [ESP8266 core for Arduino](https://github.com/esp8266/Arduino)__
- - in Arduino IDE got to Sketch/Include Library/Manage Libraries
-  ![Manage Libraries](http://i.imgur.com/9BkEBkR.png)
+The installation is slightly different from the original. This one had to be installed manually!
 
- - search for WiFiManager
-  ![WiFiManager package](http://i.imgur.com/18yIai8.png)
-
- - click Install and start [using it](#using)
-
-####  Checkout from github
-__Github version works with release 2.0.0 or newer of the [ESP8266 core for Arduino](https://github.com/esp8266/Arduino)__
-- Checkout library to your Arduino libraries folder
+- First, download the archive librairy
+- Copy and past the directory in your IDE librairy managment directory. (Ardiuno IDE or Platformio)
+- I personnaly use platformio and the correct directory is located here by default: *C:\Users\#username\.platformio\lib*
 
 ### Using
 - Include in your sketch
@@ -85,7 +74,7 @@ __Github version works with release 2.0.0 or newer of the [ESP8266 core for Ardu
 
 #include <DNSServer.h>            //Local DNS Server used for redirecting all requests to the configuration portal
 #include <ESP8266WebServer.h>     //Local WebServer used to serve the configuration portal
-#include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
+#include <WiFiManager-by-julfi.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 ```
 
 - Initialize library, in your setup function add
@@ -276,99 +265,3 @@ I am trying to keep releases working with release versions of the core, so they 
 If you connect to the created configuration Access Point but the configuration portal does not show up, just open a browser and type in the IP of the web portal, by default `192.168.4.1`.
 
 If trying to connect ends up in an endless loop, try to add `setConnectTimeout(60)` before `autoConnect();`. The parameter is timeout to try connecting in seconds.
-
-## Releases
-#### 0.12
-- removed 204 header response
-- fixed incompatibility with other libs using isnan and other std:: functions without namespace
-
-##### 0.11
-- a lot more reliable reconnecting to networks
-- custom html in custom parameters (for read only params)
-- custom html in custom parameter form (like labels)
-- custom head element (like custom css)
-- sort networks based on signal quality
-- remove duplicate networks
-
-##### 0.10
-- some css changes
-- bug fixes and speed improvements
-- added an alternative to waitForConnectResult() for debugging
-- changed `setTimeout(seconds)` to `setConfigPortalTimeout(seconds)`
-
-##### 0.9
- - fixed support for encoded characters in ssid/pass
-
-##### 0.8
- - made it compile on older versions of ESP8266 core as well, tested down to 2.0.0
- - added simple example for Custom IP
-
-##### 0.7
- - added static IP in station mode
- - added example of persisting custom IP to FS config.json
- - more option on portal homepage
- - added on PlatformIO
-
-##### 0.6
- - custom parameters
- - prettier
- - on demand config portal
- - commit #100 :D
-
-##### 0.5
- - Added to Arduino Boards Manager - Thanks Max
- - moved most stuff to PROGMEM
- - added signal quality and a nice little padlock to show which networks are encrypted
-
-##### v0.4 - all of it user contributed changes - Thank you
- - added ability to password protect the configuration Access Point
- - callback for enter configuration mode
- - memory allocation improvements
-
-##### v0.3
- - removed the need for EEPROM and works with the 2.0.0 and above stable release of the ESP8266 for Arduino IDE package
- - removed restart on save of credentials
- - updated examples
-
-##### v0.2
-needs the latest staging version (or at least a recent release of the staging version) to work
-
-##### v0.1
-works with the staging release ver. 1.6.5-1044-g170995a, built on Aug 10, 2015 of the ESP8266 Arduino library.
-
-
-### Contributions and thanks
-The support and help I got from the community has been nothing short of phenomenal. I can't thank you guys enough. This is my first real attept in developing open source stuff and I must say, now I understand why people are so dedicated to it, it is because of all the wonderful people involved.
-
-__THANK YOU__
-
-[Shawn A](https://github.com/tablatronix)
-
-[Maximiliano Duarte](https://github.com/domonetic)
-
-[alltheblinkythings](https://github.com/alltheblinkythings)
-
-[Niklas Wall](https://github.com/niklaswall)
-
-[Jakub Piasecki](https://github.com/zaporylie)
-
-[Peter Allan](https://github.com/alwynallan)
-
-[John Little](https://github.com/j0hnlittle)
-
-[markaswift](https://github.com/markaswift)
-
-[franklinvv](https://github.com/franklinvv)
-
-[Alberto Ricci Bitti](https://github.com/riccibitti)
-
-[SebiPanther](https://github.com/SebiPanther)
-
-[jonathanendersby](https://github.com/jonathanendersby)
-
-[walthercarsten](https://github.com/walthercarsten)
-
-Sorry if i have missed anyone.
-
-#### Inspiration
-- http://www.esp8266.com/viewtopic.php?f=29&t=2520
