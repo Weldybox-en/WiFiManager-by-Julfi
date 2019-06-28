@@ -67,6 +67,13 @@ The installation is slightly different from the original. This one had to be ins
 - Copy and past the directory in your IDE librairy managment directory. (Ardiuno IDE or Platformio)
 - I personnaly use platformio and the correct directory is located here by default: *C:\Users\#username\.platformio\lib*
 
+It look like this:
+
+<p align="left">
+
+  <img src="https://imgur.com/ycolq4p.png">
+</p>
+
 ### Using
 - Include in your sketch
 ```cpp
