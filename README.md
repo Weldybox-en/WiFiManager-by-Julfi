@@ -272,3 +272,12 @@ I am trying to keep releases working with release versions of the core, so they 
 If you connect to the created configuration Access Point but the configuration portal does not show up, just open a browser and type in the IP of the web portal, by default `192.168.4.1`.
 
 If trying to connect ends up in an endless loop, try to add `setConnectTimeout(60)` before `autoConnect();`. The parameter is timeout to try connecting in seconds.
+
+ ## Support me
+ 
+I've decide to share for free my work because i've learn tanks to that! For me, sharing project like this for free accelerate the knowledge corculation and that very cool.
+
+But i'm student and like every student i'm broken :(
+So, if you can, feel free to buy me a coffe :D
+
+[![paypal](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jvZuQ8SYo)
