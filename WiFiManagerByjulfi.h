@@ -22,7 +22,7 @@ extern "C" {
   #include "user_interface.h"
 }
 
-const char HTTP_HEAD[] PROGMEM            = "<!DOCTYPE html><html lang=\"fr\"><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\"/><title>{v}</title>";
+const char HTTP_HEADER[] PROGMEM            = "<!DOCTYPE html><html lang=\"fr\"><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\"/><title>{v}</title>";
 const char HTTP_STYLE[] PROGMEM           = "<style>.c{padding:15px 25px;font-size:24px;text-align:center;cursor:pointer;outline:none;color:#fff;background-color:#1f1f1f;border:1px solid #fff;border-radius:15px;box-shadow:0 0 3px #adadad}table, td{height: 50px;}div,input{padding:5px;font-size:1em}input{width:95%;padding:10px;border-radius:10px;margin:10px;border-color:#9bc6ff}body{text-align:center;font-family:verdana;color:#fff;background-color:#1f1f1f;font-size:20px;}a{text-decoration:none;text-align:left;color:#9bc6ff;font-style:italic;font-size:18px}dt{color:#ff8484}button{padding:15px 25px;font-size:24px;text-align:center;cursor:pointer;outline:none;color:#fff;background-color:#1f1f1f;border:1px solid #fff;border-radius:15px;box-shadow:0 0 3px #adadad}button:hover{background-color:#4c4c4c;color:#fff}button:active{background-color:#9bc6ff;box-shadow:0 3px #9bc6ff;transform:translateY(4px);border:none}</style>";
 const char HTTP_SCRIPT[] PROGMEM          = "<script>function c(l){document.getElementById('s').value=l.innerText||l.textContent;document.getElementById('p').focus();}</script>";
 const char HTTP_HEAD_END[] PROGMEM        = "</head><body><div style='text-align:center;display:inline-block;min-width:260px;'>";
@@ -41,7 +41,7 @@ const char HTTP_END[] PROGMEM             = "</div></body></html>";
 
 class WiFiManagerParameter {
   public:
-    /** 
+    /**
         Create custom parameters that can be added to the WiFiManager setup web page
         @id is used for HTTP queries and must not contain spaces nor other special characters
     */
